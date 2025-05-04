@@ -9,11 +9,11 @@ CREATE DATABASE LibraryManagmentSystem;
 -- Table: Books
 CREATE TABLE Books (
     BookID INT PRIMARY KEY IDENTITY(1,1),
-    Title VARCHAR(50) NOT NULL,
-    Author VARCHAR(20),
+    Title NVARCHAR(50) NOT NULL,
+    Author NVARCHAR(20),
     ISBN VARCHAR(50),
     PublishedDate DATE,
-    Genre VARCHAR(20),
+    Genre NVARCHAR(20),
     ShelfLocation VARCHAR(50),
     CurrentStatus VARCHAR(20) CHECK (CurrentStatus IN ('Available', 'Borrowed')) -- restricts the values to be only two options.
 );
@@ -21,8 +21,8 @@ CREATE TABLE Books (
 -- Table: Borrowers
 CREATE TABLE Borrowers (
     BorrowerID INT PRIMARY KEY IDENTITY(1,1),
-    FirstName VARCHAR(20) NOT NULL,
-    LastName VARCHAR(20) NOT NULL,
+    FirstName NVARCHAR(20) NOT NULL,
+    LastName NVARCHAR(20) NOT NULL,
     Email VARCHAR(255) UNIQUE,
     DateOfBirth DATE,
     MembershipDate DATE
