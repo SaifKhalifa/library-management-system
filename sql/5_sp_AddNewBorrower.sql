@@ -1,7 +1,7 @@
 CREATE PROCEDURE sp_AddNewBorrower
-    @FirstName NVARCHAR(100),
-    @LastName NVARCHAR(100),
-    @Email NVARCHAR(255),
+    @FirstName NVARCHAR(20),
+    @LastName NVARCHAR(20),
+    @Email VARCHAR(255),
     @DateOfBirth DATE,
     @MembershipDate DATE
 AS
