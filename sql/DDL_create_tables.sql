@@ -8,7 +8,7 @@ CREATE DATABASE LibraryManagmentSystem;
 
 -- Table: Books
 CREATE TABLE Books (
-    BookID INT PRIMARY KEY,
+    BookID INT PRIMARY KEY IDENTITY(1,1),
     Title VARCHAR(50) NOT NULL,
     Author VARCHAR(20),
     ISBN VARCHAR(50),
@@ -20,7 +20,7 @@ CREATE TABLE Books (
 
 -- Table: Borrowers
 CREATE TABLE Borrowers (
-    BorrowerID INT PRIMARY KEY,
+    BorrowerID INT PRIMARY KEY IDENTITY(1,1),
     FirstName VARCHAR(20) NOT NULL,
     LastName VARCHAR(20) NOT NULL,
     Email VARCHAR(255) UNIQUE,
@@ -31,7 +31,7 @@ CREATE TABLE Borrowers (
 
 -- Table: Loans
 CREATE TABLE Loans (
-    LoanID INT PRIMARY KEY,
+    LoanID INT PRIMARY KEY IDENTITY(1,1),
     BookID INT,
     BorrowerID INT,
     DateBorrowed DATETIME NOT NULL,
