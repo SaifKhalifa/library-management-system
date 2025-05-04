@@ -23,10 +23,11 @@ CREATE TABLE Borrowers (
     BorrowerID INT PRIMARY KEY,
     FirstName VARCHAR(20) NOT NULL,
     LastName VARCHAR(20) NOT NULL,
-    Email VARCHAR(20) UNIQUE,
+    Email VARCHAR(255) UNIQUE,
     DateOfBirth DATE,
     MembershipDate DATE
 );
+
 
 -- Table: Loans
 CREATE TABLE Loans (
