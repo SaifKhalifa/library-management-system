@@ -75,3 +75,23 @@ Tracks which books were borrowed and their return status.
   Returns how many times a book has been borrowed.
 
 ---
+
+### 🔸 Indexing for Performance Optimization
+
+To improve query performance, especially as the dataset grows, several non-clustered and filtered indexes were added:
+
+#### ✅ Implemented Indexes:
+
+- **Books Table:**
+  - `IX_Books_CurrentStatus`: Speeds up queries filtering by `CurrentStatus` (e.g. available books).
+  - `IX_Books_AvailableOnly`: A filtered index that only includes books where `CurrentStatus = 'Available'`.
+
+- **Borrowers Table:**
+  - `IX_Borrowers_Name`: Supports queries filtering or sorting by `LastName` and `FirstName`.
+
+- **Loans Table:**
+  - `IX_Loans_BookID`: Optimizes joins between `Loans` and `Books`.
+  - `IX_Loans_BorrowerID`: Speeds up borrower-based loan lookups.
+  - `IX_Loans_BorrowerID_DueDate`: Enhances overdue analysis; includes `DateReturned` for better coverage.
+
+These indexes were committed in a dedicated SQL script [`DDL_create_Indexes.sql`](https://github.com/SaifKhalifa/library-management-system/blob/main/sql/DDL_create_Indexes.sql) and improved performance slightly especially for common filtering and reporting operations.
